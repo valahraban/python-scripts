@@ -7,10 +7,12 @@ import re ## regex
 from re import search ## regex search if needed
 import glob
 
+#for filename in glob.glob("**/*.txt", recursive=True): ## if you want to do recursive mode instead which is more dangerous
 for filename in glob.glob('*.txt'): ## glob stores filenames
     with open(filename, 'r+', encoding='utf-8') as f: ## open files in rw-mode, iterate
         text = f.read() ## modification go under this
-        text = text.replace('\n\n\n', '\n').replace('\n\n', '\n')
+        text = text.replace('\r\n', '\n').replace('\r', '\n') # normalize newlines
+        text = text.replace('\n\n\n', '\n').replace('\n\n', '\n') # no linebreaks
         f.seek(0) ## pointer at top of file
         f.write(text) ## write to file
         f.truncate() ## truncate and close, continues
