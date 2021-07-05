@@ -19,9 +19,9 @@ for filename in glob.glob("**/*.txt", recursive=True): ## if you want to do recu
         text = text.replace(' ,',',').replace('---|---|---','').replace('---|---','').replace('---|','') # fix weird grammar, tables and errors
         text = re.sub('\\.{3,}', '...', text) # shorten trailing dots to ...
         text = re.sub('\\*{3,}', '***', text) # shorten trailing asterisks
-        text = re.sub(r"(\b|\s)''(\b|\s)", r'\1"\2', text) # turn '' into "
+        #text = re.sub(r"(\b|\s)''(\b|\s)", r'\1"\2', text) # turn '' into "
         text = re.sub(r'"+', '"', text) # fix multiple quotes
-        text = re.sub(r"'+", "'", text) # fix multiple quotes
+        #text = re.sub(r"'+", "'", text) # fix multiple quotes
         text = re.sub('(^" | "$)', '"', text, flags=re.M) # purge trailing spaces from quotes
         text = re.sub(r'https?:\/\/[^\s\)\]\}]*', '', text) # purging https before doing newlines
         text = re.sub(r'\bwww\.[a-zA-Z0-9\-\.\/\~\_]+', '', text) # purging www before doing newlines
