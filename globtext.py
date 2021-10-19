@@ -5,7 +5,7 @@
 ## Licensed: GPLv3.0 by valahraban
 import sys
 import io ## OS compatibility, universal newlines
-import re ## regex ## re.I, re.M
+import re ## regex ## flags=re.I, re.M
 import glob
 import ftfy
 
