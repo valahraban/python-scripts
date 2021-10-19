@@ -14,6 +14,7 @@ for filename in glob.glob("**/*.txt", recursive=True): ## if you want to do recu
         text = f.read() # modification go under this
         text = re.sub(r'(\t)?(Story|Storylink|Category|Genre|Author|Authorlink|Last updated|Words|Rating|Status|Content|Source|Summary|A/N):.*$', '', text, flags=re.M) # example AO3 cleaner
 
+        text = ftfy.fix_text(text).replace(' …', '...').replace('… ', '... ').replace('…', '...').replace('\N{SOFT HYPHEN}', '').replace('\u200b', '').replace(u"\uFFFD", '').replace(u"\u009D", '').replace(u"\u0081", '') # cleanup unicode special
         f.seek(0) # pointer at top of file
         f.write(text) # write to file
         f.truncate() # truncate and close, continue
