@@ -13,7 +13,7 @@ import ftfy
 for filename in glob.glob("**/*.txt", recursive=True): ## if you want to do recursive mode instead which is more dangerous
     with io.open(filename, 'r+', newline='\n', encoding='utf-8', errors='ignore') as f: # open files in rw-mode, iterate, skip encoding errors
         text = f.read() # modification go under this
-        text = re.sub(r'(\t)?(Story|Storylink|Category|Genre|Author|Authorlink|Last updated|Words|Rating|Status|Content|Source|Summary|A/N):.*$', '', text, flags=re.M) # example AO3 cleaner
+        text = re.sub(r'^(\t)?(Story|Storylink|Category|Genre|Author|Authorlink|Last updated|Words|Rating|Status|Content|Source|Summary|A/N):.*$', '', text, flags=re.M) # example AO3 cleaner
 
         text = ftfy.fix_text(text).replace('…', '...').replace('\N{SOFT HYPHEN}', '').replace('\u200b', '').replace(u"\uFFFD", '').replace(u"\u009D", '').replace(u"\u0081", '') # cleanup unicode special
         text = text.replace('\r\n', '\n').replace('\r', '\n') # normalize newlines | final steps
