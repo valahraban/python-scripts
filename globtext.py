@@ -2,6 +2,7 @@
 ## Script goes through .txt files located with glob and performs modifications on the entire file
 ## The defaults of this program are for processing .txt for use in NLP datasetting
 ## For use in your own batch text editing, learn to use regex and tweak the script for your needs
+## The version on github is meant to provide a safe baseline: I've used more expressions before, but they proved too aggressive when cleaning large batches of bad OCRs and old typewriter formatting
 ## Licensed: GPLv3.0 by valahraban
 import sys
 import io ## OS compatibility, universal newlines
