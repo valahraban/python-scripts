@@ -1,5 +1,6 @@
 ## really hacky python script to estimate the encoding of all the files in your folder with chardet and a tqdm loadbar: run at your own risk
 ## meant to be used while piping the output to a text file from your shell if you're working on a massive amount of files e.g.: python globchardet.py >> output.txt
+## coincidentally shows a good example how to add a tqdm progress bar to your script
 ## WTFPL by valahraban
 import sys
 import glob
